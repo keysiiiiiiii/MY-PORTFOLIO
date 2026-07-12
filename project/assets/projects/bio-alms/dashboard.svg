@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Bio-ALMS Dashboard">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="40" y="40" width="320" height="640" rx="16" fill="url(#card)"/>
+  <circle cx="100" cy="100" r="28" fill="#3b82f6"/>
+  <rect x="80" y="160" width="240" height="14" rx="7" fill="#334155"/>
+  <rect x="80" y="190" width="180" height="10" rx="5" fill="#1f2937"/>
+  <rect x="80" y="240" width="240" height="40" rx="8" fill="#1d4ed8"/>
+  <rect x="80" y="300" width="240" height="40" rx="8" fill="#1e293b"/>
+  <rect x="80" y="360" width="240" height="40" rx="8" fill="#1e293b"/>
+  <rect x="80" y="420" width="240" height="40" rx="8" fill="#1e293b"/>
+  <rect x="400" y="40" width="840" height="120" rx="16" fill="url(#card)"/>
+  <text x="430" y="95" font-family="Inter, sans-serif" font-size="34" font-weight="700" fill="#f5f9ff">Bio-ALMS</text>
+  <text x="430" y="130" font-family="Inter, sans-serif" font-size="18" fill="#93a4c0">Biometric Attendance &amp; Leave Management</text>
+  <rect x="400" y="180" width="270" height="140" rx="14" fill="url(#card)"/>
+  <rect x="700" y="180" width="270" height="140" rx="14" fill="url(#card)"/>
+  <rect x="1000" y="180" width="240" height="140" rx="14" fill="url(#card)"/>
+  <text x="425" y="220" font-family="Inter, sans-serif" font-size="14" fill="#93a4c0">Present today</text>
+  <text x="425" y="270" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#60a5fa">96.4%</text>
+  <text x="725" y="220" font-family="Inter, sans-serif" font-size="14" fill="#93a4c0">On leave</text>
+  <text x="725" y="270" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#38bdf8">12</text>
+  <text x="1025" y="220" font-family="Inter, sans-serif" font-size="14" fill="#93a4c0">Late</text>
+  <text x="1025" y="270" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#f59e0b">5</text>
+  <rect x="400" y="340" width="840" height="340" rx="16" fill="url(#card)"/>
+  <text x="430" y="385" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#f5f9ff">Attendance trend (30 days)</text>
+  <polyline points="430,620 510,560 590,590 670,520 750,540 830,470 910,500 990,440 1070,470 1150,410 1230,450" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="430,620 510,580 590,600 670,560 750,575 830,520 910,540 990,490 1070,510 1150,460 1230,485" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 6" opacity="0.7"/>
+  <g stroke="#334155" stroke-width="1">
+    <line x1="430" y1="430" x2="1230" y2="430"/>
+    <line x1="430" y1="500" x2="1230" y2="500"/>
+    <line x1="430" y1="570" x2="1230" y2="570"/>
+  </g>
+</svg>

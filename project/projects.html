@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — King Cedrick Plupenio</title>
+  <meta name="description" content="Bio-ALMS — biometric attendance & leave management system, Lead Developer, 85% contribution. BUBBL — personal finance app founded and led from zero." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects — King Cedrick Plupenio" />
+  <meta property="og:description" content="Systems built end-to-end: Bio-ALMS and BUBBL — Node.js, JavaScript, MySQL, PostgreSQL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/darkmode.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <a href="#main" class="visually-hidden">Skip to content</a>
+  <div class="app-shell">
+    <header class="mobile-header">
+      <span class="brand-name">King Cedrick Plupenio</span>
+      <div style="display:flex;gap:.5rem;align-items:center;">
+        <button class="theme-toggle" aria-label="Toggle theme"></button>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"></button>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Site navigation"></aside>
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <main id="main" class="main" tabindex="-1">
+      <div class="page-head">
+        <p class="eyebrow">Projects</p>
+        <h1>Systems I've designed, built, and shipped.</h1>
+        <p>Click any project to open the full case study — challenges, solutions, image gallery, and key learnings. New projects appear automatically.</p>
+      </div>
+
+      <!-- Toolbar: search + count -->
+      <div class="projects-toolbar" role="search">
+        <div class="projects-search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            type="search"
+            id="projectSearch"
+            class="input"
+            placeholder="Search projects, technologies…"
+            aria-label="Search projects" />
+        </div>
+        <span class="projects-count" id="projectsCount" aria-live="polite"></span>
+      </div>
+
+      <!-- Filter buttons — generated dynamically from tags in data -->
+      <nav class="project-filters" aria-label="Filter projects by category" id="projectFilters"></nav>
+
+      <!-- Project grid -->
+      <section aria-label="Projects list">
+        <div class="project-grid" id="projectsGrid" data-projects-list>
+          <div class="projects-empty" id="projectsEmpty" role="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p>No projects match your search or filter.</p>
+            <button class="btn btn-ghost" onclick="document.getElementById('projectSearch').value='';window.Projects&&window.Projects.bindFilters(document.querySelectorAll('[data-filter]'),document.getElementById('projectsGrid'));document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));document.querySelector('[data-filter=all]')&&document.querySelector('[data-filter=all]').classList.add('active');">Clear filters</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- How I approach a project -->
+      <section aria-labelledby="process-title" class="card fade-in" style="margin-top:var(--space-10);">
+        <h2 id="process-title" style="margin-bottom:var(--space-4);">How I approach a project</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <h3 style="font-size:1rem;">1. Understand</h3>
+            <p style="color:var(--text-muted);font-size:.9rem;margin:0;">Map the business process before writing a line of code.</p>
+          </div>
+          <div class="value-card">
+            <h3 style="font-size:1rem;">2. Design</h3>
+            <p style="color:var(--text-muted);font-size:.9rem;margin:0;">Schema, API, UI. Decide what NOT to build.</p>
+          </div>
+          <div class="value-card">
+            <h3 style="font-size:1rem;">3. Build</h3>
+            <p style="color:var(--text-muted);font-size:.9rem;margin:0;">Iterate fast, reconcile edge cases, own the whole stack.</p>
+          </div>
+          <div class="value-card">
+            <h3 style="font-size:1rem;">4. Deliver</h3>
+            <p style="color:var(--text-muted);font-size:.9rem;margin:0;">Ship to real users, then learn from real usage.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer">© <span data-year></span> King Cedrick Plupenio.</footer>
+    </main>
+  </div>
+
+  <script src="js/profile-config.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/data/projects-data.js"></script>
+  <script src="js/projects.js"></script>
+  <script>
+    /* ── Projects page init (runs after Projects.renderList auto-init) ── */
+    document.addEventListener("DOMContentLoaded", function () {
+      const grid     = document.getElementById("projectsGrid");
+      const filterEl = document.getElementById("projectFilters");
+      const countEl  = document.getElementById("projectsCount");
+
+      /* Build filter buttons from tag data */
+      const tags = window.Projects ? window.Projects.allTags() : [];
+      filterEl.innerHTML =
+        `<button class="filter-btn active" data-filter="all">All</button>` +
+        tags.map(t => `<button class="filter-btn" data-filter="${t}">${t}</button>`).join("");
+
+      /* Wire filters after buttons are in DOM */
+      if (window.Projects) {
+        const btns = filterEl.querySelectorAll("[data-filter]");
+        window.Projects.bindFilters(btns, grid);
+      }
+
+      /* Live project count */
+      function updateCount() {
+        const visible = grid.querySelectorAll(".project-card:not([style*='display: none'])").length;
+        const total   = (window.PROJECT_DATA || []).length;
+        countEl.textContent = visible === total
+          ? `${total} project${total !== 1 ? "s" : ""}`
+          : `${visible} of ${total}`;
+      }
+      updateCount();
+
+      /* Update count after filter/search changes */
+      document.getElementById("projectSearch")
+        ?.addEventListener("input", () => setTimeout(updateCount, 50));
+      filterEl.addEventListener("click", () => setTimeout(updateCount, 50));
+    });
+  </script>
+</body>
+</html>

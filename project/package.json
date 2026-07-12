@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-king-cedrick-plupenio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Personal portfolio of King Cedrick Plupenio — IT Consultant | Data Science Graduate | Full Stack Developer.",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "node build.mjs",
+    "preview": "vite preview",
+    "serve": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "vite": "^5.4.2"
+  }
+}

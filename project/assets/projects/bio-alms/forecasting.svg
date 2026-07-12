@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Bio-ALMS Forecasting module">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg3)"/>
+  <rect x="60" y="60" width="1160" height="600" rx="20" fill="#0f1a30" stroke="#1f2a44"/>
+  <text x="100" y="120" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#f5f9ff">Forecasting — Predicted Absenteeism (Next 14 Days)</text>
+  <text x="100" y="150" font-family="Inter, sans-serif" font-size="14" fill="#93a4c0">In-house statistical logic over historical attendance</text>
+  <g stroke="#334155" stroke-width="1">
+    <line x1="120" y1="220" x2="1160" y2="220"/>
+    <line x1="120" y1="320" x2="1160" y2="320"/>
+    <line x1="120" y1="420" x2="1160" y2="420"/>
+    <line x1="120" y1="520" x2="1160" y2="520"/>
+  </g>
+  <polyline points="120,540 200,500 280,520 360,460 440,490 520,430 600,470 680,400 760,440 840,370 920,410 1000,340 1080,390 1160,330" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="120,560 200,540 280,545 360,520 440,528 520,505 600,515 680,485 760,500 840,466 920,480 1000,450 1080,470 1160,440" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="8 8" opacity=".7"/>
+  <g font-family="Inter, sans-serif" font-size="12" fill="#94a3b8">
+    <text x="100" y="220">8%</text>
+    <text x="100" y="320">6%</text>
+    <text x="100" y="420">4%</text>
+    <text x="100" y="520">2%</text>
+  </g>
+  <rect x="100" y="580" width="14" height="14" rx="3" fill="#3b82f6"/>
+  <text x="124" y="592" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1">Actual</text>
+  <rect x="200" y="580" width="14" height="14" rx="3" fill="#38bdf8" opacity=".7"/>
+  <text x="224" y="592" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1">Forecast</text>
+</svg>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications — King Cedrick Plupenio</title>
+  <meta name="description" content="A gallery of certifications and professional credentials, with placeholder cards ready to be filled in as certificates are earned." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Certifications — King Cedrick Plupenio" />
+  <meta property="og:description" content="Certificate gallery with modal preview and download buttons." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/darkmode.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <a href="#main" class="visually-hidden">Skip to content</a>
+  <div class="app-shell">
+    <header class="mobile-header">
+      <span class="brand-name">King Cedrick Plupenio</span>
+      <div style="display:flex;gap:.5rem;align-items:center;">
+        <button class="theme-toggle" aria-label="Toggle theme"></button>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"></button>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Site navigation"></aside>
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <main id="main" class="main" tabindex="-1">
+      <div class="page-head">
+        <p class="eyebrow">Certifications</p>
+        <h1>Credentials &amp; continuous learning.</h1>
+        <p>This gallery is prepared for upcoming certificates. Each card supports a preview modal and a download button — just drop the certificate file in and update the card.</p>
+      </div>
+
+      <section aria-label="Certificate gallery">
+        <div class="cert-grid" id="certGrid"></div>
+      </section>
+
+      <footer class="page-footer">© <span data-year></span> King Cedrick Plupenio.</footer>
+    </main>
+  </div>
+
+  <!-- Modal host -->
+  <script src="js/profile-config.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // Placeholder certificates — easy to extend later.
+    const CERTS = [
+      { title: "Data Science Specialization", issuer: "Online Learning Platform", year: "Pending", file: null },
+      { title: "Node.js Backend Development", issuer: "Online Learning Platform", year: "Pending", file: null },
+      { title: "SQL & Databases", issuer: "Online Learning Platform", year: "Pending", file: null },
+      { title: "Full Stack JavaScript", issuer: "Online Learning Platform", year: "Pending", file: null },
+      { title: "IT Service Management", issuer: "To be announced", year: "Pending", file: null },
+      { title: "Python for Data Analytics", issuer: "Online Learning Platform", year: "Pending", file: null },
+    ];
+
+    function certCardHTML(c, i) {
+      const hasFile = !!c.file;
+      return `
+        <article class="cert-card fade-in">
+          <div class="cert-preview">
+            <span class="ribbon">${c.year}</span>
+            <span class="cert-icon">${window.ICONS.award || ""}</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">${c.title}</div>
+            <div class="cert-issuer">${c.issuer}</div>
+            <div class="cert-actions">
+              <button class="btn btn-ghost" data-preview-cert="${i}">Preview</button>
+              ${hasFile
+                ? `<a class="btn btn-primary" href="${c.file}" download>Download</a>`
+                : `<button class="btn btn-outline" disabled title="File not yet uploaded" style="opacity:.6;cursor:not-allowed;">Download</button>`}
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function certModalHTML(c) {
+      if (c.file) {
+        return `<div class="modal-body"><h2>${c.title}</h2><p style="color:var(--text-muted);">${c.issuer} · ${c.year}</p><img src="${c.file}" alt="${c.title} certificate" style="width:100%;border-radius:var(--radius);border:1px solid var(--border);"><div class="modal-section" style="margin-top:var(--space-4);"><a class="btn btn-primary" href="${c.file}" download>Download certificate</a></div></div>`;
+      }
+      return `<div class="modal-body" style="text-align:center;padding:3rem 2rem;">
+        <div style="width:64px;height:64px;margin:0 auto var(--space-4);color:var(--primary-400);">${window.ICONS.doc || ""}</div>
+        <h2 style="margin-bottom:var(--space-2);">${c.title}</h2>
+        <p style="color:var(--text-muted);">${c.issuer} · ${c.year}</p>
+        <p style="color:var(--text-muted);font-size:.9rem;">Certificate file will be added soon.</p>
+      </div>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const grid = document.getElementById("certGrid");
+      grid.innerHTML = CERTS.map((c, i) => certCardHTML(c, i)).join("");
+      // Re-init fade-in for newly inserted
+      grid.querySelectorAll(".fade-in").forEach(el => el.classList.add("visible"));
+
+      document.addEventListener("click", function (e) {
+        const btn = e.target.closest("[data-preview-cert]");
+        if (!btn) return;
+        const i = +btn.getAttribute("data-preview-cert");
+        window.openModal(certModalHTML(CERTS[i]));
+      });
+    });
+  </script>
+</body>
+</html>

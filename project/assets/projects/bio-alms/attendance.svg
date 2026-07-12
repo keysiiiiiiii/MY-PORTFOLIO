@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Bio-ALMS Attendance view">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg2)"/>
+  <rect x="280" y="40" width="960" height="640" rx="16" fill="#0f1a30" stroke="#1f2a44"/>
+  <text x="320" y="100" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#f5f9ff">Attendance Log</text>
+  <rect x="320" y="130" width="880" height="44" rx="8" fill="#16213d"/>
+  <g font-family="Inter, sans-serif" font-size="13" fill="#93a4c0" font-weight="600">
+    <text x="340" y="157">Employee</text>
+    <text x="620" y="157">Time-in</text>
+    <text x="780" y="157">Time-out</text>
+    <text x="950" y="157">Status</text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="13" fill="#cbd5e1">
+    <rect x="320" y="186" width="880" height="44" rx="8" fill="#111a2e"/>
+    <text x="340" y="213">Dela Cruz, J.</text>
+    <text x="620" y="213">08:02 AM</text>
+    <text x="780" y="213">05:10 PM</text>
+    <rect x="950" y="200" width="70" height="20" rx="10" fill="#10b98122" stroke="#10b981" stroke-opacity=".5"/>
+    <text x="970" y="214" fill="#10b981">Present</text>
+
+    <rect x="320" y="238" width="880" height="44" rx="8" fill="#0f1a30"/>
+    <text x="340" y="265">Reyes, M.</text>
+    <text x="620" y="265">09:15 AM</text>
+    <text x="780" y="265">06:00 PM</text>
+    <rect x="950" y="252" width="60" height="20" rx="10" fill="#f59e0b22" stroke="#f59e0b" stroke-opacity=".5"/>
+    <text x="965" y="266" fill="#f59e0b">Late</text>
+
+    <rect x="320" y="290" width="880" height="44" rx="8" fill="#111a2e"/>
+    <text x="340" y="317">Santos, A.</text>
+    <text x="620" y="317">—</text>
+    <text x="780" y="317">—</text>
+    <rect x="950" y="304" width="70" height="20" rx="10" fill="#38bdf822" stroke="#38bdf8" stroke-opacity=".5"/>
+    <text x="970" y="318" fill="#38bdf8">On leave</text>
+
+    <rect x="320" y="342" width="880" height="44" rx="8" fill="#0f1a30"/>
+    <text x="340" y="369">Cruz, P.</text>
+    <text x="620" y="369">07:55 AM</text>
+    <text x="780" y="369">05:05 PM</text>
+    <rect x="950" y="356" width="70" height="20" rx="10" fill="#10b98122" stroke="#10b981" stroke-opacity=".5"/>
+    <text x="970" y="370" fill="#10b981">Present</text>
+  </g>
+  <rect x="280" y="40" width="0" height="640"/>
+  <rect x="40" y="40" width="220" height="640" rx="16" fill="#0f1a30" stroke="#1f2a44"/>
+  <g font-family="Inter, sans-serif" font-size="13" fill="#93a4c0">
+    <rect x="60" y="80" width="180" height="36" rx="6" fill="#1d4ed8"/>
+    <text x="80" y="103" fill="#fff" font-weight="600">Dashboard</text>
+    <rect x="60" y="130" width="180" height="36" rx="6" fill="#16213d"/>
+    <text x="80" y="153" fill="#e6edf6">Attendance</text>
+    <rect x="60" y="180" width="180" height="36" rx="6" fill="#16213d"/>
+    <text x="80" y="203" fill="#e6edf6">Leave Requests</text>
+    <rect x="60" y="230" width="180" height="36" rx="6" fill="#16213d"/>
+    <text x="80" y="253" fill="#e6edf6">Forecasting</text>
+    <rect x="60" y="280" width="180" height="36" rx="6" fill="#16213d"/>
+    <text x="80" y="303" fill="#e6edf6">Reports</text>
+  </g>
+</svg>

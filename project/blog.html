@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — King Cedrick Plupenio</title>
+  <meta name="description" content="Writing on the development journey, data science, career growth, and project case studies. Static blog with category filtering." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog — King Cedrick Plupenio" />
+  <meta property="og:description" content="Development journey, data science, career growth, and project case studies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/darkmode.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <a href="#main" class="visually-hidden">Skip to content</a>
+  <div class="app-shell">
+    <header class="mobile-header">
+      <span class="brand-name">King Cedrick Plupenio</span>
+      <div style="display:flex;gap:.5rem;align-items:center;">
+        <button class="theme-toggle" aria-label="Toggle theme"></button>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"></button>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Site navigation"></aside>
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <main id="main" class="main" tabindex="-1">
+      <div class="page-head">
+        <p class="eyebrow">Blog</p>
+        <h1>Notes from the build.</h1>
+        <p>Writing on the development journey, data science, career growth, and project case studies. Articles are static — no backend required.</p>
+      </div>
+
+      <div class="blog-filter" role="tablist" aria-label="Filter articles by category">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="development">Development Journey</button>
+        <button class="filter-btn" data-filter="data-science">Data Science</button>
+        <button class="filter-btn" data-filter="career">Career Growth</button>
+        <button class="filter-btn" data-filter="case-study">Project Case Studies</button>
+      </div>
+
+      <section aria-label="Articles">
+        <div class="blog-grid" id="blogGrid"></div>
+        <p id="blogEmpty" style="display:none;color:var(--text-muted);text-align:center;padding:var(--space-8);">No articles in this category yet — check back soon.</p>
+      </section>
+
+      <footer class="page-footer">© <span data-year></span> King Cedrick Plupenio.</footer>
+    </main>
+  </div>
+
+  <script src="js/profile-config.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // Reusable article data — add objects here to publish new posts.
+    const POSTS = [
+      {
+        title: "How I built a forecasting engine for attendance",
+        category: "case-study",
+        categoryLabel: "Project Case Studies",
+        excerpt: "A walkthrough of the forecasting logic inside Bio-ALMS — why I built it, the data I used, and what it now predicts.",
+        date: "Coming soon",
+        read: "~6 min read",
+      },
+      {
+        title: "From HR Assistant to systems builder",
+        category: "career",
+        categoryLabel: "Career Growth",
+        excerpt: "How working inside HR operations taught me to design software that fits how teams actually work.",
+        date: "Coming soon",
+        read: "~4 min read",
+      },
+      {
+        title: "Data Science, in plain terms",
+        category: "data-science",
+        categoryLabel: "Data Science",
+        excerpt: "What a Data Science specialization actually means in day-to-day product work — beyond the buzzwords.",
+        date: "Coming soon",
+        read: "~5 min read",
+      },
+      {
+        title: "Why I founded BUBBL",
+        category: "development",
+        categoryLabel: "Development Journey",
+        excerpt: "The story behind BUBBL: why personal finance, why mobile-first, and what I learned owning a product end-to-end.",
+        date: "Coming soon",
+        read: "~5 min read",
+      },
+      {
+        title: "Node.js + PostgreSQL: the combo I keep coming back to",
+        category: "development",
+        categoryLabel: "Development Journey",
+        excerpt: "Why this stack has carried every serious project I've shipped — and where I'd still reach for something else.",
+        date: "Coming soon",
+        read: "~4 min read",
+      },
+      {
+        title: "Reading attendance data like a dataset",
+        category: "data-science",
+        categoryLabel: "Data Science",
+        excerpt: "How treating attendance like a dataset — not just a log — unlocked the forecasting module in Bio-ALMS.",
+        date: "Coming soon",
+        read: "~5 min read",
+      },
+    ];
+
+    function postHTML(p) {
+      return `
+        <article class="blog-card fade-in visible" data-category="${p.category}">
+          <div class="blog-cover">${p.categoryLabel}</div>
+          <div class="blog-body">
+            <span class="blog-cat">${p.categoryLabel}</span>
+            <h3 class="blog-title">${p.title}</h3>
+            <p class="blog-excerpt">${p.excerpt}</p>
+            <div class="blog-meta"><span>${p.date}</span><span>·</span><span>${p.read}</span></div>
+          </div>
+        </article>`;
+    }
+
+    function filterPosts(cat) {
+      const grid = document.getElementById("blogGrid");
+      const empty = document.getElementById("blogEmpty");
+      const items = grid.querySelectorAll(".blog-card");
+      let shown = 0;
+      items.forEach(card => {
+        const match = cat === "all" || card.getAttribute("data-category") === cat;
+        card.style.display = match ? "" : "none";
+        if (match) shown++;
+      });
+      empty.style.display = shown === 0 ? "block" : "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("blogGrid").innerHTML = POSTS.map(postHTML).join("");
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          filterPosts(btn.getAttribute("data-filter"));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

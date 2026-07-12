@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="BUBBL budget view">
+  <defs>
+    <linearGradient id="bbg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bbg2)"/>
+  <rect x="430" y="50" width="420" height="620" rx="40" fill="#0f1a30" stroke="#1f2a44" stroke-width="3"/>
+  <text x="640" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#fff">Monthly Budget</text>
+  <g font-family="Inter, sans-serif" font-size="13" fill="#cbd5e1">
+    <text x="470" y="150" fill="#93a4c0">Needs (50%)</text>
+    <text x="810" y="150" text-anchor="end" font-weight="600" fill="#60a5fa">₱12,000</text>
+    <rect x="470" y="160" width="340" height="12" rx="6" fill="#1f2a44"/>
+    <rect x="470" y="160" width="170" height="12" rx="6" fill="#3b82f6"/>
+
+    <text x="470" y="210" fill="#93a4c0">Wants (30%)</text>
+    <text x="810" y="210" text-anchor="end" font-weight="600" fill="#38bdf8">₱7,200</text>
+    <rect x="470" y="220" width="340" height="12" rx="6" fill="#1f2a44"/>
+    <rect x="470" y="220" width="120" height="12" rx="6" fill="#38bdf8"/>
+
+    <text x="470" y="270" fill="#93a4c0">Savings (20%)</text>
+    <text x="810" y="270" text-anchor="end" font-weight="600" fill="#10b981">₱4,800</text>
+    <rect x="470" y="280" width="340" height="12" rx="6" fill="#1f2a44"/>
+    <rect x="470" y="280" width="80" height="12" rx="6" fill="#10b981"/>
+  </g>
+  <rect x="450" y="330" width="380" height="160" rx="20" fill="#16213d"/>
+  <text x="470" y="370" font-family="Inter, sans-serif" font-size="14" fill="#93a4c0">Salary cycle</text>
+  <text x="470" y="410" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#f5f9ff">Every 15th &amp; 30th</text>
+  <text x="470" y="440" font-family="Inter, sans-serif" font-size="12" fill="#94a3b8">Next payout in 6 days</text>
+  <text x="470" y="462" font-family="Inter, sans-serif" font-size="12" fill="#f59e0b">⚠ Salary not yet logged this cycle</text>
+  <rect x="450" y="520" width="380" height="110" rx="20" fill="#0ea5e922" stroke="#0ea5e9" stroke-opacity=".4"/>
+  <text x="470" y="560" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#7dd3fc">Shared budget</text>
+  <text x="470" y="585" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1">Planning together with your partner.</text>
+  <text x="470" y="608" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1">2 members · ₱3,400 contributed</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="King Cedrick Plupenio avatar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="68" fill="#bfdbfe" opacity=".95"/>
+  <path d="M70 380 C70 290 130 250 200 250 C270 250 330 290 330 380 Z" fill="#bfdbfe" opacity=".95"/>
+  <text x="200" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-size="56" font-weight="700" fill="#1e3a8a">KP</text>
+</svg>
