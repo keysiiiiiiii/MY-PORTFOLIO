@@ -53,12 +53,12 @@
 /** @type {ResumeConfig} */
 const RESUME_CONFIG = {
   /* ── File ────────────────────────────────────────────────── */
-  file:        "assets/resume/resume.pdf",
+  file: "assets/resume/PLUPENIO, KING CEDRICK (DEV).pdf",
   displayName: "King-Cedrick-Plupenio-Resume.pdf",
 
   /* ── Metadata ────────────────────────────────────────────── */
-  version:   "June 2026",
-  updatedAt: "2026-06-21",
+  version: "July 2026",
+  updatedAt: "2026-07-13",
 
   /* ── Viewer options ──────────────────────────────────────── */
   showToolbar: true,
