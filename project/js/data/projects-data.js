@@ -81,9 +81,9 @@ const PROJECT_DATA = [
       "Forecasting adds disproportionate value for operational planning teams.",
     ],
     images: [
-      { src: "assets/projects/bio-alms/dashboard.svg",    alt: "Bio-ALMS attendance dashboard showing daily stats and 30-day trend chart", caption: "Dashboard overview" },
-      { src: "assets/projects/bio-alms/attendance.svg",   alt: "Attendance log with per-employee status (Present, Late, On Leave)", caption: "Attendance log" },
-      { src: "assets/projects/bio-alms/forecasting.svg",  alt: "Forecasting module predicting absenteeism over the next 14 days", caption: "Forecasting module" },
+      { src: "assets/projects/bio-alms/dashboard.svg", alt: "Bio-ALMS attendance dashboard showing daily stats and 30-day trend chart", caption: "Dashboard overview" },
+      { src: "assets/projects/bio-alms/attendance.svg", alt: "Attendance log with per-employee status (Present, Late, On Leave)", caption: "Attendance log" },
+      { src: "assets/projects/bio-alms/forecasting.svg", alt: "Forecasting module predicting absenteeism over the next 14 days", caption: "Forecasting module" },
     ],
     links: [],
     tags: ["Full Stack", "HR Systems", "Data Analytics"],
@@ -124,8 +124,8 @@ const PROJECT_DATA = [
     ],
     images: [
       { src: "assets/projects/bubbl/dashboard.svg", alt: "BUBBL expense dashboard showing available balance and recent transactions", caption: "Expense dashboard" },
-      { src: "assets/projects/bubbl/budget.svg",    alt: "Budget breakdown using 50/30/20 rule with salary cycle tracker", caption: "Budget breakdown" },
-      { src: "assets/projects/bubbl/shared.svg",    alt: "Shared budget feature allowing two users to co-manage a joint goal", caption: "Shared budgeting" },
+      { src: "assets/projects/bubbl/budget.svg", alt: "Budget breakdown using 50/30/20 rule with salary cycle tracker", caption: "Budget breakdown" },
+      { src: "assets/projects/bubbl/shared.svg", alt: "Shared budget feature allowing two users to co-manage a joint goal", caption: "Shared budgeting" },
     ],
     links: [],
     tags: ["Mobile", "FinTech", "Product"],

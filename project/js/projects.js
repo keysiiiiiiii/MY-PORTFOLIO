@@ -26,11 +26,11 @@
     } catch (e) {
       console.error("Failed to load local storage projects", e);
     }
-    
+
     if (localProjects.length) {
       const staticProjects = window.PROJECT_DATA || [];
       const mergedProjects = [...staticProjects];
-      
+
       localProjects.forEach(localProj => {
         const idx = mergedProjects.findIndex(p => p.id === localProj.id);
         if (idx !== -1) {
@@ -39,7 +39,7 @@
           mergedProjects.push(localProj);
         }
       });
-      
+
       window.PROJECT_DATA = mergedProjects;
     }
   })();
@@ -48,28 +48,28 @@
 
   /** @type {Record<ProjectStatus, {label: string, colorVar: string}>} */
   const STATUS_META = {
-    "completed":   { label: "Completed",   color: "var(--accent-success)" },
+    "completed": { label: "Completed", color: "var(--accent-success)" },
     "in-progress": { label: "In Progress", color: "var(--accent-warning)" },
-    "archived":    { label: "Archived",    color: "var(--ink-500)" },
-    "concept":     { label: "Concept",     color: "var(--secondary-400)" },
+    "archived": { label: "Archived", color: "var(--ink-500)" },
+    "concept": { label: "Concept", color: "var(--secondary-400)" },
   };
 
   /** @type {Record<string, string>} */
   const LINK_LABELS = {
     github: "GitHub",
-    demo:   "Live Demo",
-    docs:   "Docs",
-    video:  "Video",
-    other:  "View",
+    demo: "Live Demo",
+    docs: "Docs",
+    video: "Video",
+    other: "View",
   };
 
   /** @type {Record<string, string>} link-type → icon key from window.ICONS */
   const LINK_ICONS = {
     github: "github",
-    demo:   "external",
-    docs:   "doc",
-    video:  "external",
-    other:  "external",
+    demo: "external",
+    docs: "doc",
+    video: "external",
+    other: "external",
   };
 
   /* ── Helpers ───────────────────────────────────────────── */
@@ -87,7 +87,7 @@
     const fmt = (d) => {
       const [y, m] = d.split("-");
       if (!m) return y;
-      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       return `${months[+m - 1]} ${y}`;
     };
     return end ? `${fmt(start)} – ${fmt(end)}` : `${fmt(start)} – Present`;
@@ -578,12 +578,12 @@
         </div>
         <div class="admin-proj-actions">
           <button class="admin-btn admin-btn-ghost" onclick="window.AdminPanel.editProject('${escHtml(p.id)}')">Edit</button>
-          ${(!p.isStatic || p.isEdited) 
-            ? `<button class="admin-btn admin-btn-danger" onclick="window.AdminPanel.deleteProject('${escHtml(p.id)}', ${p.isStatic})">
+          ${(!p.isStatic || p.isEdited)
+        ? `<button class="admin-btn admin-btn-danger" onclick="window.AdminPanel.deleteProject('${escHtml(p.id)}', ${p.isStatic})">
                  ${p.isStatic ? 'Revert' : 'Delete'}
-               </button>` 
-            : ''
-          }
+               </button>`
+        : ''
+      }
         </div>
       </div>
     `).join("");
@@ -614,7 +614,7 @@
   function editProject(id) {
     const staticProjects = window.PROJECT_DATA || [];
     const localProjects = getLocalProjects();
-    
+
     let project = localProjects.find(p => p.id === id);
     if (!project) {
       project = staticProjects.find(p => p.id === id);
@@ -625,14 +625,14 @@
   }
 
   function deleteProject(id, isStatic) {
-    const confirmMsg = isStatic 
+    const confirmMsg = isStatic
       ? "Are you sure you want to revert this project to its original static version? Local edits will be lost."
       : "Are you sure you want to delete this project permanently?";
     if (!confirm(confirmMsg)) return;
 
     let localProjects = getLocalProjects();
     localProjects = localProjects.filter(p => p.id !== id);
-    
+
     if (saveLocalProjects(localProjects)) {
       openAdminMenu();
     }
@@ -678,7 +678,7 @@
     const mediaListHTML = () => {
       return currentFormMedia.map((m, i) => {
         const isVideo = m.type === "video" || m.src.startsWith("data:video/") || m.src.endsWith(".mp4") || m.src.endsWith(".webm") || m.src.endsWith(".mov") || m.src.endsWith(".ogg");
-        const element = isVideo 
+        const element = isVideo
           ? `<video src="${escHtml(m.src)}" muted autoplay loop playsinline></video>`
           : `<img src="${escHtml(m.src)}" alt="preview">`;
         return `
@@ -823,7 +823,7 @@
     if (container) {
       container.innerHTML = currentFormMedia.map((m, i) => {
         const isVideo = m.type === "video" || m.src.startsWith("data:video/") || m.src.endsWith(".mp4") || m.src.endsWith(".webm") || m.src.endsWith(".mov") || m.src.endsWith(".ogg");
-        const element = isVideo 
+        const element = isVideo
           ? `<video src="${escHtml(m.src)}" muted autoplay loop playsinline></video>`
           : `<img src="${escHtml(m.src)}" alt="preview">`;
         return `
@@ -864,7 +864,7 @@
 
   function saveProjectForm(event, isEdit, editId) {
     event.preventDefault();
-    
+
     const id = isEdit ? editId : document.getElementById("frm_id").value.trim().toLowerCase().replace(/[^\w-]/g, "");
     const title = document.getElementById("frm_title").value.trim();
     const subtitle = document.getElementById("frm_subtitle").value.trim();
@@ -881,7 +881,7 @@
 
     const technologies = parseCSV(document.getElementById("frm_technologies").value);
     const tags = parseCSV(document.getElementById("frm_tags").value);
-    
+
     const achievements = parseLines(document.getElementById("frm_achievements").value);
     const challenges = parseLines(document.getElementById("frm_challenges").value);
     const solutions = parseLines(document.getElementById("frm_solutions").value);
@@ -1005,10 +1005,10 @@ window.PROJECT_DATA = PROJECT_DATA;
   }
 
   function injectAdminButton() {
-    const isLocal = window.location.hostname === "localhost" || 
-                    window.location.hostname === "127.0.0.1" || 
-                    window.location.search.includes("admin=true");
-    
+    const isLocal = window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1" ||
+      window.location.search.includes("admin=true");
+
     if (!isLocal || !document.getElementById("projectsGrid")) return;
 
     const btn = document.createElement("button");
